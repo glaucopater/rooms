@@ -7,7 +7,7 @@ export interface ITree {
 
 // a function that transform an ITree into a Partial<DiagramSchema<unknown>>
 // that can be used by the Diagram component
-export function treeToSchema(tree: ITree):DiagramSchema<unknown> {
+export function treeToSchema(tree: ITree): DiagramSchema<unknown> {
   let newSchema: Partial<DiagramSchema<unknown>> = { nodes: [], links: [] };
 
   if (newSchema.nodes)
@@ -20,13 +20,18 @@ export function treeToSchema(tree: ITree):DiagramSchema<unknown> {
   if (tree.children) {
     tree.children.forEach((child, index) => {
       if (newSchema && newSchema.links && newSchema.nodes) {
+        console.log(index + newSchema.nodes.length + 100);
         newSchema.nodes.push({
           id: "node-" + child.id,
           content: "node " + child.id,
-          coordinates: [100, (index+newSchema.nodes.length) + 100],
+          coordinates: [index + newSchema.nodes.length + newSchema.nodes.length*100, 100],
+          disableDrag: true,
         });
         // add parent child relationship
-        newSchema.links.push({ input: "node-" + tree.id, output: "node-"+ child.id });
+        newSchema.links.push({
+          input: "node-" + tree.id,
+          output: "node-" + child.id,
+        });
       }
     });
   }
