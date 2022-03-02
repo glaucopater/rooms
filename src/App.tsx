@@ -1,13 +1,13 @@
 import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { UncontrolledDiagram } from "./components/CustomDiagram";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Vite + React + TS + Storybook Template</p>
+        <UncontrolledDiagram/>
       </header>
     </div>
   );
