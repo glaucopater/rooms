@@ -4,7 +4,7 @@ Book and checking out spaces.
 
 Abstract
 ---
-An user afer registration can book a space in the office according to the calendar and capacity.
+An user after registration can book a space in the office according to the calendar and capacity.
 When a spot is booked there is a limited time to check in.
 The max size of the office is set and can be changed weekly.
 A waiting list with a max size is available. If someone cancel the booking the spot is available again and the calendar is updated. Same for the waiting list.
